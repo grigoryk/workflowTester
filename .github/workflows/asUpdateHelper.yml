@@ -6,7 +6,7 @@ name: 'A-S Update Helper'
 
 on:
   pull_request:
-    paths: 'buildSrc/src/main/java/Dependencies.kt'
+    paths: 'Dependencies.kt'
     branches: [ main ]
 
 jobs:
