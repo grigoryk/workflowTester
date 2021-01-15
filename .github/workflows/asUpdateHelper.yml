@@ -22,7 +22,7 @@ jobs:
   changeHelper:
     needs: asVersionChanged
     runs-on: ubuntu-latest
-    if: ${{ asVersionChanged.outputs.versionChanged }}
+    if: ${{ needs.asVersionChanged.outputs.versionChanged }}
     steps:
       - id: postComment
         name: 'Post A-S update checklist'
