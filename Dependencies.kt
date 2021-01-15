@@ -7,7 +7,7 @@
 
 // Synchronized version numbers for dependencies used by (some) modules
 object Versions {
-    const val kotlin = "1.4.21"
+    const val kotlin = "1.4.20"
     const val coroutines = "1.4.2"
 
     const val junit = "4.12"
@@ -30,7 +30,7 @@ object Versions {
     const val disklrucache = "2.0.2"
     const val leakcanary = "2.4"
 
-    const val mozilla_appservices = "67.2.0"
+    const val mozilla_appservices = "67.2.1"
 
     const val mozilla_glean = "33.1.2"
 
