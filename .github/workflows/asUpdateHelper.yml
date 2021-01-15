@@ -6,8 +6,8 @@ name: 'A-S Update Helper'
 
 on:
   pull_request:
-    paths: 'Dependencies.kt'
-    branches: [ main ]
+    paths: 'buildSrc/src/main/java/Dependencies.kt'
+    branches: [ master ]
 
 jobs:
   asVersionChanged:
@@ -17,16 +17,16 @@ jobs:
       versionChanged: ${{ steps.changeCheck.outputs.didChange }}
     steps:
       - id: changeCheck
-      - name: 'Check if A-S version changed'
-      - run: echo "::set-output name=versionChanged::true"
+        name: 'Check if A-S version changed'
+        run: echo "::set-output name=versionChanged::true"
   changeHelper:
-    runs-on: ubuntu-latest
     needs: asVersionChanged
+    runs-on: ubuntu-latest
     if: ${{ asVersionChanged.outputs.versionChanged }}
     steps:
       - id: postComment
-      - name: 'Post A-S update checklist'
-      - uses: JungWinter/comment@v1.1.0
+        name: 'Post A-S update checklist'
+        uses: JungWinter/comment@v1.1.0
         with:
           type: create
           body: "A-S version changed"
