@@ -12,7 +12,7 @@ on:
 jobs:
   asVersionChanged:
     name: 'A-S Version Changed'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     outputs:
       versionChanged: ${{ steps.changeCheck.outputs.didChange }}
     steps:
@@ -20,9 +20,10 @@ jobs:
         name: 'Check if A-S version changed'
         run: echo "::set-output name=versionChanged::true"
   changeHelper:
+    name: 'Post A-S update checklist'
     needs: asVersionChanged
-    runs-on: ubuntu-latest
-    if: ${{ needs.asVersionChanged.outputs.versionChanged }}
+    runs-on: ubuntu-20.04
+    #if: ${{ needs.asVersionChanged.outputs.versionChanged }}
     steps:
       - id: postComment
         name: 'Post A-S update checklist'
