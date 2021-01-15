@@ -20,6 +20,7 @@ jobs:
       - name: 'Check if A-S version changed'
         run: echo "::set-output name=versionChanged::true"
   changeHelper:
+    runs-on: ubuntu-latest
     needs: asVersionChanged
     if: ${{ asVersionChanged.outputs.versionChanged }}
     steps:
